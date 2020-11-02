@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">MobileVisitorApp</string>
+    //General
+    <string name="submit">Submit</string>
+    //Main activity
+    <string name="sign_in">Sign-In</string>
+    <string name="sign_out">Sign-Out</string>
+    <string name="admin">Admin</string>
+    //SignIn activity
+    <string name="visit_purpose">Purpose of Visit</string>
+    <string name="employee">Employee Visiting</string>
+    <string name="visitorEmail">Email</string>
+    <string name="visitor_name">Full name</string>
+</resources>
