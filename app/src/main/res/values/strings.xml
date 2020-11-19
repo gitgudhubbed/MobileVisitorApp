@@ -5,10 +5,16 @@
     //Main activity
     <string name="sign_in">Sign-In</string>
     <string name="sign_out">Sign-Out</string>
-    <string name="admin">Admin</string>
+    <string name="admin">Staff</string>
     //SignIn activity
     <string name="visit_purpose">Purpose of Visit</string>
     <string name="employee">Employee Visiting</string>
     <string name="visitorEmail">Email</string>
     <string name="visitor_name">Full name</string>
+    <string name="add_employee">Add Employee</string>
+    <string name="employee_name">Employee Name</string>
+    <string name="employee_email">Employee Email</string>
+    <string-array name="job_type_list">
+        <item> </item>
+    </string-array>
 </resources>

@@ -1,9 +1,65 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Admin">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_margin="12dp">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <!-- Add employee Card -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/add_employee_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="21dp"
+        android:layout_margin="8dp">
+
+        <LinearLayout
+            android:id="@+id/add_employee_linearlayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="8dp"  >
+            <TextView
+                android:id="@+id/addEmployee"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/add_employee"
+                android:focusable="true"
+                android:clickable="true"
+                android:textSize="22sp"
+                android:textColor="@color/colorBlack"/>
+            <!--Hidden/expandable content for adding employee to database -->
+            <RelativeLayout
+                android:id="@+id/add_employee_expand"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone">
+
+                <EditText
+                    android:id="@+id/employeeName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/employee_name"
+                    android:importantForAutofill="no"
+                    android:inputType="text"/>
+                <EditText
+                    android:id="@+id/employeeEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/employeeName"
+                    android:hint="@string/employee_email"
+                    android:importantForAutofill="no"
+                    android:inputType="textEmailAddress"/>
+                <Button
+                    android:id="@+id/saveEmployee"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/employeeEmail"
+                    android:text="@string/submit" />
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>

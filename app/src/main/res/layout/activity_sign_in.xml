@@ -14,35 +14,35 @@
         tools:layout_editor_absoluteY="1dp">
 
         <EditText
-            android:id="@+id/visitorName"
+            android:id="@+id/visitor_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/visitor_name"
+            android:hint="@string/visitor_name"
             android:inputType="text"/>
 
         <EditText
-            android:id="@+id/visitorEmail"
+            android:id="@+id/visitor_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/visitorEmail"
+            android:hint="@string/visitorEmail"
             android:inputType="textEmailAddress"/>
 
-        <EditText
-            android:id="@+id/employee"
+        <Spinner
+            android:id="@+id/employee_list"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/employee"
-            android:inputType="text"/>
+            android:hint="@string/employee"/>
 
         <EditText
-            android:id="@+id/visitPurpose"
+            android:id="@+id/visit_purpose"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/visit_purpose"
+            android:hint="@string/visit_purpose"
             android:inputType="text"/>
 
         <Button
-            android:id="@+id/visitorSubmit"
+            android:id="@+id/visitor_submit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/submit" />
