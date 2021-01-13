@@ -1,15 +1,14 @@
 package com.example.mobilevisitorapp
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.gms.tasks.Task
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.QuerySnapshot
 import kotlinx.android.synthetic.main.activity_sign_out.*
-import kotlinx.android.synthetic.main.visitor_item.*
 
 class SignOut : AppCompatActivity(), (FirebaseRepo.Visitor) -> Unit {
 
@@ -22,17 +21,12 @@ class SignOut : AppCompatActivity(), (FirebaseRepo.Visitor) -> Unit {
 
         val db : FirebaseFirestore = FirebaseFirestore.getInstance()
 
-        //Visitor sign-out function
-        /*visitor_list_button!!.setOnClickListener {
-            visitorSignOut()
-        }*/
-
-
         //Get List of signed in visitors from database and sort alphabetically
         fun getVisitorList() : Task<QuerySnapshot>{
             return db
                 .collection("Visitors")
-                .orderBy("name", Query.Direction.ASCENDING)
+                .whereEqualTo("signedIn", true)
+                //.orderBy("name", Query.Direction.ASCENDING)
                 .get()
         }
 
@@ -47,19 +41,20 @@ class SignOut : AppCompatActivity(), (FirebaseRepo.Visitor) -> Unit {
                     visitorList = it.result!!.toObjects(FirebaseRepo.Visitor::class.java)
                     visitorAdapter.visitorListItems = visitorList
                     visitorAdapter.notifyDataSetChanged()
+
                 } else {
                     Log.d(TAG, "Error: ${it.exception!!.message}")
                 }
             }
         }
         loadVisitorList()
+        Log.d("tag", "List loaded")
+
+
     }
 
     override fun invoke(p1: FirebaseRepo.Visitor) {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    fun visitorSignOut(){
-        // Confirmation check, Timestamp, save visitor details for E.O.D export, remove from active visitors (could use boolean tag if this doesn't work)
-    }
 }
