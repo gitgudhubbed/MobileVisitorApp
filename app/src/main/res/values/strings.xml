@@ -14,6 +14,8 @@
     <string name="add_employee">Add Employee</string>
     <string name="employee_name">Employee Name</string>
     <string name="employee_email">Employee Email</string>
+    <string name="export">Export</string>
+    <string name="rollcall">Roll Call</string>
     <string-array name="job_type_list">
         <item> </item>
     </string-array>

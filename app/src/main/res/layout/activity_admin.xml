@@ -51,6 +51,22 @@
                     android:text="@string/submit" />
             </RelativeLayout>
         </LinearLayout>
+    <LinearLayout
+        android:id="@+id/roll_call_linearlayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="8dp">
+        <Button
+            android:id="@+id/rollCallButton"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text ="@string/rollcall"
+            android:textSize="22sp"
+            android:textColor="@color/colorBlack"/>
+
+
+    </LinearLayout>
 
         <LinearLayout
         android:id="@+id/end_of_day_linearlayout"
@@ -62,9 +78,16 @@
                 android:id="@+id/exportButton"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text ="Export"
+                android:text ="@string/export"
                 android:textSize="22sp"
                 android:textColor="@color/colorBlack"/>
         </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"/>
 
 </LinearLayout>

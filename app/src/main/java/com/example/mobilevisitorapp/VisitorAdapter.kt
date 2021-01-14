@@ -35,6 +35,8 @@ class VisitorAdapter(var visitorListItems : List<FirebaseRepo.Visitor>, val clic
         }
     }
 
+
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.visitor_item, parent, false)
         return VisitorViewHolder(view)

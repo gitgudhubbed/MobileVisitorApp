@@ -41,6 +41,11 @@ class Admin : AppCompatActivity() {
             }
         }
 
+        rollCallButton!!.setOnClickListener{
+            val intent = Intent(this, RollCall::class.java)
+            startActivity(intent)
+        }
+
         fun getVisitorList(): Task<QuerySnapshot> {
             return db
                 .collection("Visitors")
@@ -78,11 +83,18 @@ class Admin : AppCompatActivity() {
             saveEmployee(empName, empEmail)
         }
 
-        fun deleteSignedOutVisitor(){
-            db.collection("Visitors")
-                .whereEqualTo("signedOut", true)
-               // .delete()
-
+        fun deleteSignedOutVisitor() {
+            //Listener to create async function to populate batch
+            getVisitorList().addOnCompleteListener {
+                if (it.isSuccessful) {
+                    //db.batch() to delete all signed-out visitors
+                    val batch = db.batch()
+                    it.result?.forEach {
+                        batch.delete(it.reference)
+                    }
+                    batch.commit()
+                }
+            }
         }
 
         exportButton!!.setOnClickListener {
@@ -116,16 +128,20 @@ class Admin : AppCompatActivity() {
                             val uploadTask: UploadTask = logRef.putFile(firebaseFile)
                             //Disable button to prevent multiple presses
                             exportButton.setEnabled(false)
+                            progressBar.visibility = View.VISIBLE
                             uploadTask.addOnCompleteListener { taskSnapshot ->
                                 Log.w(TAG, "Logs Exported")
                                 Toast.makeText(this, "Export successful", Toast.LENGTH_LONG).show()
                                 exportButton.setEnabled(true)
+                                progressBar.visibility = View.GONE
+                                deleteSignedOutVisitor()
                                 val intent = Intent(this, MainActivity::class.java)
                                 startActivity(intent)
                             }.addOnFailureListener {
                                 Log.w(TAG, "Error exporting")
                                 Toast.makeText(this, "Export failed", Toast.LENGTH_LONG).show()
                                 exportButton.setEnabled(true)
+                                progressBar.visibility = View.GONE
                             }
 
                         } else {
@@ -136,7 +152,7 @@ class Admin : AppCompatActivity() {
 
                 }
                 loadVisitorList()
-                deleteSignedOutVisitor()
+
             }
             builder.setNegativeButton("No"){dialog, which ->
                 Toast.makeText(this,"Export Cancelled", Toast.LENGTH_LONG).show()
