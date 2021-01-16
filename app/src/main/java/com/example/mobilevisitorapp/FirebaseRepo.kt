@@ -21,10 +21,9 @@ class FirebaseRepo {
         var inTime : Timestamp? = null,
         var visId : String = "",
         var signedIn : Boolean = true,
+        var photoUri : String = "",
         var outTime : Timestamp? = null,
         var expandable : Boolean = false
-
-
     )
 
     data class Employee(
@@ -32,9 +31,9 @@ class FirebaseRepo {
         var email : String = ""
     )
 
+
     fun visitorSignOut(visitor : Visitor){
         // Timestamp, save visitor details for E.O.D export, remove from active visitors (could use boolean tag if this doesn't work)
-        //val signOutVis = visitor(name, email, empVisiting, visPurpose, inTime)
         Log.d("tag", " ---- passed into repo ----  ${visitor}")
         val signOutVis = db.collection("Visitors").document(visitor.visId)
         signOutVis
@@ -44,7 +43,6 @@ class FirebaseRepo {
             ))
             .addOnSuccessListener { Log.d(TAG, "DocumentSnapshot successfully updated!") }
             .addOnFailureListener { e -> Log.w(TAG, "Error updating document", e) }
-        //SignOut.startActivity()
 
         Log.d("tag", "----- After FB call ------ ${visitor}")
     }

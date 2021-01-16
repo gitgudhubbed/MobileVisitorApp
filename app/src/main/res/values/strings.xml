@@ -16,6 +16,7 @@
     <string name="employee_email">Employee Email</string>
     <string name="export">Export</string>
     <string name="rollcall">Roll Call</string>
+    <string name="takePhoto">Take Photo</string>
     <string-array name="job_type_list">
         <item> </item>
     </string-array>
