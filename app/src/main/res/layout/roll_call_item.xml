@@ -12,15 +12,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="8dp">
+        android:padding="8dp"
+        android:background="@color/colorPrimaryBtn">
 
         <TextView
             android:id="@+id/roll_visitor_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="16dp"
-            android:text="Visitor Name"
-            android:textColor="@color/colorBlack"
+            android:text="@string/visitor_item_name"
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimaryDark"
             android:textSize="22sp"/>
 
     </LinearLayout>

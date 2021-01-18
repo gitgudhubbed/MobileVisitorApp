@@ -1,7 +1,6 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_margin="12dp">
 
@@ -20,7 +19,7 @@
                 android:focusable="true"
                 android:clickable="true"
                 android:textSize="22sp"
-                android:textColor="@color/colorBlack"/>
+                android:textColor="@color/colorPrimaryDark"/>
             <!--Hidden/expandable content for adding employee to database -->
             <RelativeLayout
                 android:id="@+id/add_employee_expand"
@@ -48,40 +47,38 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/employeeEmail"
-                    android:text="@string/submit" />
+                    android:text="@string/submit"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:background="@drawable/rounded_corner_button"
+                    android:layout_margin="30dp"/>
             </RelativeLayout>
         </LinearLayout>
-    <LinearLayout
-        android:id="@+id/roll_call_linearlayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="8dp">
+
         <Button
             android:id="@+id/rollCallButton"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text ="@string/rollcall"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="150dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_gravity="bottom"
+            android:layout_alignParentBottom="true"
+            android:text ="@string/roll_call"
             android:textSize="22sp"
-            android:textColor="@color/colorBlack"/>
+            android:textColor="@color/colorPrimaryDark"
+            android:background="@drawable/rounded_corner_button"/>
 
-
-    </LinearLayout>
-
-        <LinearLayout
-        android:id="@+id/end_of_day_linearlayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="8dp">
-            <Button
-                android:id="@+id/exportButton"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text ="@string/export"
-                android:textSize="22sp"
-                android:textColor="@color/colorBlack"/>
-        </LinearLayout>
+        <Button
+            android:id="@+id/exportButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="30dp"
+            android:text ="@string/export"
+            android:textSize="22sp"
+            android:textColor="@color/colorPrimaryDark"
+            android:background="@drawable/rounded_corner_button"/>
 
     <ProgressBar
         android:id="@+id/progressBar"
@@ -90,4 +87,4 @@
         android:layout_height="wrap_content"
         android:visibility="gone"/>
 
-</LinearLayout>
+</RelativeLayout>

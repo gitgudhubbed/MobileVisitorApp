@@ -6,17 +6,23 @@
     <string name="sign_in">Sign-In</string>
     <string name="sign_out">Sign-Out</string>
     <string name="admin">Staff</string>
+    <string name="sign_in_message">Please Sign-in</string>
+    <string name="welcome_message">Welcome</string>
     //SignIn activity
     <string name="visit_purpose">Purpose of Visit</string>
     <string name="employee">Employee Visiting</string>
-    <string name="visitorEmail">Email</string>
+    <string name="visitorEmail">Email Address</string>
     <string name="visitor_name">Full name</string>
     <string name="add_employee">Add Employee</string>
     <string name="employee_name">Employee Name</string>
     <string name="employee_email">Employee Email</string>
-    <string name="export">Export</string>
-    <string name="rollcall">Roll Call</string>
     <string name="takePhoto">Take Photo</string>
+    //Admin
+    <string name="export">Export</string>
+    <string name="roll_call">Roll Call</string>
+    //Sign Out
+    <string name="visitor_item_name">Visitor Name</string>
+
     <string-array name="job_type_list">
         <item> </item>
     </string-array>
